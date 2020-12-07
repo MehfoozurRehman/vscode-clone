@@ -1,0 +1,38 @@
+.title-bar {
+  width: 100%;
+  background-color: var(--bar-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title-bar-btn {
+  width: 40px;
+  height: 40px;
+}
+.menu-bar {
+  width: fit-content;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.menu-item {
+  padding: 0.7em;
+  user-select: none;
+}
+.menu-item:hover {
+  background-color: var(--hover-color);
+}
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.control-bar {
+  display: flex;
+  align-items: center;
+}
+.control-btn:last-child:hover {
+  background-color: #ff3535;
+}

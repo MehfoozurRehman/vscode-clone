@@ -11,24 +11,153 @@
   <body>
     <div class="container">
       <div class="title-bar">
-        <button class="side-bar-btn">i</button>
-        <ul class="menu-bar">
-          <li class="menu-item">File</li>
-          <li class="menu-item">Edit</li>
-          <li class="menu-item">Selecion</li>
-          <li class="menu-item">View</li>
-          <li class="menu-item">Go</li>
-          <li class="menu-item">Run</li>
-          <li class="menu-item">Terminal</li>
-          <li class="menu-item">Help</li>
-        </ul>
+        <button class="side-bar-btn title-bar-btn">i</button>
+        <div id="menu-bar">
+          <ul class="main-menu">
+            <li>
+              File
+              <ul>
+  
+                <li class="icon save" onclick='createNewFile()'><a href="#">New File<span>Ctrl+N</span></a>
+                </li>
+                <li onclick='selectFolder()'>New Folder</li>
+  
+                <li class="separator"></li>
+                <li class="icon save" onclick='saveFile()'><a
+                    href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
+  
+                <li class="icon save" onclick="showSaveDialogAndSaveFile()"><a
+                    href="javascript:void(0)">Save As</a></li>
+  
+                <li class="separator"></li>
+  
+              </ul>
+            </li>
+            <li>
+              View
+              <ul>
+                <li>Documents
+                  <ul>
+                    <li>All</li>
+                    <li class="separator"></li>
+                    <li>Unfinished</li>
+                    <li>Closed</li>
+                  </ul>
+                </li>
+                <li><a href="/#!/products">Products</a></li>
+                <li class="separator"></li>
+                <li>
+                  First level
+                  <ul>
+                    <li>
+                      Second level
+                      <ul>
+                        <li>
+                          Third level menu item
+                        </li>
+                        <li>
+                          Third level
+                          <ul>
+                            <li>
+                              Forth level menu item 1
+                            </li>
+                            <li>
+                              Forth level menu item 2
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="separator"></li>
+                        <li>Another third level menu item</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Items will make menus stretch as needed
+                    </li>
+                    <li class="separator"></li>
+                    <li>
+                      Another menu item
+                    </li>
+                  </ul>
+                </li>
+                <li class="separator"></li>
+                <li>Reports
+                  <ul>
+                    <li>Sell history</li>
+                    <li>Clients history</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Window
+              <ul>
+                <li class="icon save"><a href="javascript:void(0)">Full Screen<span>F11</span></a></li>
+  
+                <li>
+                  <a href="javascript:void(0)" onclick='toggleWidgets()'>Widgets<span><input
+                        type='checkbox' id='widgetCheckbox'></span></a>
+                </li>
+                <li class="separator"></li>
+                <li>
+                  Options
+                </li>
+              </ul>
+            </li>
+  
+            <li>
+              Tools
+              <ul>
+                <li>Load Snippets
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+  
+            <li>
+              Settings
+              <ul>
+                <li onclick='settings("theme")'>Themes</li>
+                <li class="separator"></li>
+                <li>Upgrade account</li>
+                <li>Registration</li>
+                <li class="separator"></li>
+                <li>Contact us</li>
+              </ul>
+            </li>
+  
+            <li>
+              Help
+              <ul>
+                <li onclick='showShortcuts()'>Shortcuts</li>
+                <li class="separator"></li>
+                <li>Upgrade account</li>
+                <li>Registration</li>
+                <li class="separator"></li>
+                <li>Contact us</li>
+              </ul>
+            </li>
+          </ul>
+        </div>    
         <div class="title">
           VS Code
         </div>
         <div class="control-bar">
-          <button class="control-btn" id="minimize">i</button>
-          <button class="control-btn" id="maximize">i</button>
-          <button class="control-btn" id="exit">i</button>
+          <button class="control-btn title-bar-btn" id="minimize">i</button>
+          <button class="control-btn title-bar-btn" id="maximize">i</button>
+          <button class="control-btn title-bar-btn" id="exit">i</button>
         </div>
       </div>
       <div class="main"></div>
