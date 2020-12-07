@@ -1,0 +1,82 @@
+#menu-bar {
+  display: flex;
+  align-items: center;
+}
+ul.main-menu > li {
+  display: inline;
+  list-style-type: none;
+  padding: 0.7em;
+  line-height: 28px;
+  vertical-align: middle;
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+
+ul.main-menu > li.active-menu {
+  background-color: transparent;
+}
+
+ul.main-menu ul li a {
+  color: var(--font-color);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+ul.main-menu li ul li a span {
+  font-size: var(--font-size);
+  color: var(--font-color);
+  float: right;
+  right: 10px;
+  left: auto;
+  position: absolute;
+}
+
+/* SUBMENU */
+ul.main-menu > li ul {
+  list-style-type: none;
+  padding: 0.3em;
+  margin: 0;
+  display: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--hover-color);
+  background-color: var(--bar-color);
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+ul.main-menu li ul li {
+  display: list-item;
+  margin: 0;
+  padding: 0.3em;
+  min-width: 200px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+ul.main-menu li:hover {
+  background-color: var(--hover-color);
+}
+ul.main-menu li.active-menu:hover {
+  background-color: var(--hover-color);
+}
+ul.main-menu li ul li.disabled,
+ul.main-menu li ul li.disabled:hover,
+ul.main-menu li ul li.disabled a {
+  color: var(--hover-color);
+  cursor: default;
+  background-color: #080809;
+}
+
+.separator {
+  width: 90%;
+  background-color: var(--hover-color);
+  height: 1px;
+  margin: 3px auto;
+}
+
+.submenu {
+  background-image: url(../img/menu-right-arrow.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}

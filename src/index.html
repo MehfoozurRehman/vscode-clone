@@ -3,34 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/title-bar.css">
+    <link rel="stylesheet" href="styles/menu-bar.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/status-bar.css">
+
+    <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+	  <script src="js/libraries/jquery.min.js"></script>
+    <script src="js/libraries/jquery.menu.js"></script>
+    
   </head>
   <body>
     <div class="container">
       <div class="title-bar">
-        <button class="side-bar-btn title-bar-btn">i</button>
         <div id="menu-bar">
+          <button class="app-logo title-bar-btn">i</button>
           <ul class="main-menu">
             <li>
               File
               <ul>
-  
-                <li class="icon save" onclick='createNewFile()'><a href="#">New File<span>Ctrl+N</span></a>
-                </li>
+                <li class="icon save" onclick='createNewFile()'><a href="#">New File<span>Ctrl+N</span></a></li>
                 <li onclick='selectFolder()'>New Folder</li>
-  
-                <li class="separator"></li>
-                <li class="icon save" onclick='saveFile()'><a
-                    href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
-  
-                <li class="icon save" onclick="showSaveDialogAndSaveFile()"><a
-                    href="javascript:void(0)">Save As</a></li>
-  
-                <li class="separator"></li>
-  
+                <div class="separator"></div>
+                <li class="icon save" onclick='saveFile()'><a href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
+                <li class="icon save" onclick="showSaveDialogAndSaveFile()"><a href="javascript:void(0)">Save As</a></li>  
               </ul>
             </li>
             <li>
@@ -39,13 +37,13 @@
                 <li>Documents
                   <ul>
                     <li>All</li>
-                    <li class="separator"></li>
+                    <div class="separator"></div>
                     <li>Unfinished</li>
                     <li>Closed</li>
                   </ul>
                 </li>
                 <li><a href="/#!/products">Products</a></li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>
                   First level
                   <ul>
@@ -66,20 +64,20 @@
                             </li>
                           </ul>
                         </li>
-                        <li class="separator"></li>
+                        <div class="separator"></div>
                         <li>Another third level menu item</li>
                       </ul>
                     </li>
                     <li>
                       Items will make menus stretch as needed
                     </li>
-                    <li class="separator"></li>
+                    <div class="separator"></div>
                     <li>
                       Another menu item
                     </li>
                   </ul>
                 </li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>Reports
                   <ul>
                     <li>Sell history</li>
@@ -97,7 +95,7 @@
                   <a href="javascript:void(0)" onclick='toggleWidgets()'>Widgets<span><input
                         type='checkbox' id='widgetCheckbox'></span></a>
                 </li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>
                   Options
                 </li>
@@ -130,10 +128,10 @@
               Settings
               <ul>
                 <li onclick='settings("theme")'>Themes</li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>Upgrade account</li>
                 <li>Registration</li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>Contact us</li>
               </ul>
             </li>
@@ -142,10 +140,10 @@
               Help
               <ul>
                 <li onclick='showShortcuts()'>Shortcuts</li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>Upgrade account</li>
                 <li>Registration</li>
-                <li class="separator"></li>
+                <div class="separator"></div>
                 <li>Contact us</li>
               </ul>
             </li>
@@ -160,7 +158,24 @@
           <button class="control-btn title-bar-btn" id="exit">i</button>
         </div>
       </div>
-      <div class="main"></div>
+      <div class="main">
+        <div class="explorer-container">
+          <div class="opened-file">
+            <div class="opened-file-title">file</div>
+          </div>
+          <div class="opened-folder">
+            <div class="opend-folder-title">
+              <button class="folder-btn" id="folder-expend-collapse">i</button>
+              <div class="folder-name">folder</div>
+              <button class="folder-btn" id="new-file">i</button>
+              <button class="folder-btn" id="new-folder">i</button>
+              <button class="folder-btn" id="sync-folder">i</button>
+              <button class="folder-btn" id="collepse-into-explorer">i</button>
+            </div>
+            <div class="opend-folder-content"></div>  
+          </div>
+        </div>
+      </div>
       <div class="status-bar"></div>
     </div>
   </body>

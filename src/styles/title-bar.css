@@ -6,21 +6,11 @@
   justify-content: space-between;
 }
 .title-bar-btn {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 38px;
 }
-.menu-bar {
-  width: fit-content;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-.menu-item {
-  padding: 0.7em;
-  user-select: none;
-}
-.menu-item:hover {
-  background-color: var(--hover-color);
+.app-logo:hover {
+  background-color: transparent;
 }
 .sub-menu {
   display: flex;
