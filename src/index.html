@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles/title-bar.css">
     <link rel="stylesheet" href="styles/menu-bar.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/side-bar.css">
+    <link rel="stylesheet" href="styles/explorer-container.css">
     <link rel="stylesheet" href="styles/status-bar.css">
 
     <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
@@ -19,7 +21,7 @@
     <div class="container">
       <div class="title-bar">
         <div id="menu-bar">
-          <button class="app-logo title-bar-btn">i</button>
+          <button class="explorer-container-btn title-bar-btn">i</button>
           <ul class="main-menu">
             <li>
               File
@@ -161,11 +163,14 @@
       <div class="main">
         <div class="explorer-container">
           <div class="opened-file">
-            <div class="opened-file-title">file</div>
+            <div class="opened-file-title">
+              <button class="folder-btn" id="expend-collapse">i</button>
+              <div class="file-name">file</div>
+            </div>
           </div>
           <div class="opened-folder">
-            <div class="opend-folder-title">
-              <button class="folder-btn" id="folder-expend-collapse">i</button>
+            <div class="opened-folder-title">
+              <button class="folder-btn" id="expend-collapse">i</button>
               <div class="folder-name">folder</div>
               <button class="folder-btn" id="new-file">i</button>
               <button class="folder-btn" id="new-folder">i</button>
@@ -175,8 +180,17 @@
             <div class="opend-folder-content"></div>  
           </div>
         </div>
+        <div class="text-editor"></div>
+        <div class="side-bar">
+          <button class="side-bar-btn">i</button>
+          <button class="side-bar-btn">i</button>
+          <button class="side-bar-btn">i</button>
+          <button class="side-bar-btn">i</button>
+        </div>
       </div>
-      <div class="status-bar"></div>
+      <div class="status-bar">
+        <div class="file-type">html</div>
+      </div>
     </div>
   </body>
 </html>

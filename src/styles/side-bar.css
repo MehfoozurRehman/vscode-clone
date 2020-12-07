@@ -1,0 +1,11 @@
+.side-bar {
+  height: 100%;
+  background-color: var(--bar-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -3px 0px 6px rgba(0, 0, 0, 0.1);
+}
+.side-bar-btn {
+  width: 45px;
+  height: 40px;
+}

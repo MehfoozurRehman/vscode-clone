@@ -1,0 +1,50 @@
+.explorer-container {
+  width: 300px;
+  background-color: var(--bar-color);
+  height: 100%;
+  padding: 0.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 0;
+}
+.opened-file {
+  height: 30%;
+  width: 100%;
+  background-color: var(--bg-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.opened-file-title {
+  display: flex;
+  align-items: center;
+  padding: 0.2em;
+  background-color: var(--hover-color);
+}
+.folder-btn {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.folder-btn:hover {
+  background-color: var(--bar-color);
+}
+.opened-folder {
+  height: 68%;
+  width: 100%;
+  background-color: var(--bg-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.opened-folder-title {
+  display: flex;
+  align-items: center;
+  padding: 0.2em;
+  background-color: var(--hover-color);
+}
+.folder-name {
+  display: flex;
+  flex-grow: 1;
+}
