@@ -17,11 +17,18 @@
   justify-content: center;
   align-items: center;
   user-select: none;
+  font-size: var(--font-size);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
 }
 .draggable {
   -webkit-app-region: drag;
+}
+.icon {
+  width: 22px;
+}
+.max-icon {
+  width: 13px;
 }
 .control-bar {
   display: flex;

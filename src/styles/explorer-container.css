@@ -3,9 +3,6 @@
   background-color: var(--bar-color);
   height: 100%;
   padding: 0.7em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.1);
   padding-bottom: 0;
 }
@@ -15,17 +12,20 @@
   background-color: var(--bg-color);
   overflow-y: auto;
   overflow-x: hidden;
+  margin-bottom: 4%;
 }
 .opened-file-title {
   display: flex;
   align-items: center;
-  padding: 0.2em;
+  font-size: var(--font-size);
+  height: 35px;
   background-color: var(--hover-color);
+  margin: 0px 3px;
 }
 .folder-btn {
   width: 30px;
   height: 30px;
-  margin-right: 10px;
+  margin: 0px 3px;
   cursor: pointer;
 }
 .folder-btn:hover {
@@ -41,7 +41,8 @@
 .opened-folder-title {
   display: flex;
   align-items: center;
-  padding: 0.2em;
+  height: 35px;
+  font-size: var(--font-size);
   background-color: var(--hover-color);
 }
 .folder-name {

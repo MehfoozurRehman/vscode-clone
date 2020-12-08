@@ -10,8 +10,12 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     minWidth: 1000,
-    minHeight: 800,
-    frame: false
+    minHeight: 700,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true, 
+      enableRemoteModule: true
+    }
   });
 
   // and load the index.html of the app.

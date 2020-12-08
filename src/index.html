@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>VS Code</title>
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/title-bar.css">
@@ -21,163 +21,154 @@
     <div class="container">
       <div class="title-bar">
         <div id="menu-bar">
-          <button class="explorer-container-btn title-bar-btn">i</button>
+          <button class="explorer-container-btn title-bar-btn" id="explorerBtn">
+            <svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+            </svg>  
+          </button>
           <ul class="main-menu">
             <li>
               File
               <ul>
                 <li class="icon save" onclick='createNewFile()'><a href="#">New File<span>Ctrl+N</span></a></li>
-                <li onclick='selectFolder()'>New Folder</li>
+                <li class="icon save" onclick='createNewWindow()'><a href="#">New Window<span>Ctrl+Shift+N</span></a></li>
                 <div class="separator"></div>
-                <li class="icon save" onclick='saveFile()'><a href="javascript:void(0)">Save<span>Ctrl+S</span></a></li>
-                <li class="icon save" onclick="showSaveDialogAndSaveFile()"><a href="javascript:void(0)">Save As</a></li>  
-              </ul>
-            </li>
-            <li>
-              View
-              <ul>
-                <li>Documents
+                <li class="icon save" onclick='openFile()'><a href="#">Open File<span>Ctrl+O</span></a></li>
+                <li class="icon save" onclick='openFolder()'><a href="#">Open Folder<span>Ctrl+K</span></a></li>
+                <li class="icon save" onclick='openWorkspace()'><a href="#">Open Workspace<span></span></a></li>
+                <div class="separator"></div>
+                <li class="icon save" onclick='saveFile()'><a href="#">Save<span>Ctrl+S</span></a></li>
+                <li class="icon save" onclick='saveFileAs()'><a href="#">Save As<span>Ctrl+Shift+S</span></a></li>
+                <div class="separator"></div>
+                <li>
+                  Preference
                   <ul>
-                    <li>All</li>
+                    <li class="icon save"><a href="#">Settings<span>Ctrl+,</span></a></li>
                     <div class="separator"></div>
-                    <li>Unfinished</li>
-                    <li>Closed</li>
-                  </ul>
-                </li>
-                <li><a href="/#!/products">Products</a></li>
-                <div class="separator"></div>
-                <li>
-                  First level
-                  <ul>
-                    <li>
-                      Second level
-                      <ul>
-                        <li>
-                          Third level menu item
-                        </li>
-                        <li>
-                          Third level
-                          <ul>
-                            <li>
-                              Forth level menu item 1
-                            </li>
-                            <li>
-                              Forth level menu item 2
-                            </li>
-                          </ul>
-                        </li>
-                        <div class="separator"></div>
-                        <li>Another third level menu item</li>
-                      </ul>
-                    </li>
-                    <li>
-                      Items will make menus stretch as needed
-                    </li>
+                    <li class="icon save"><a href="#">Keyboard Shortcuts<span></span></a></li>
+                    <li class="icon save"><a href="#">Keymaps<span></span></a></li>
                     <div class="separator"></div>
-                    <li>
-                      Another menu item
-                    </li>
+                    <li class="icon save" onclick='colorTheme()'><a href="#">Color Theme<span></span></a></li>
+                    <li class="icon save" onclick='fileIconTheme()'><a href="#">File Icon Theme<span></span></a></li>
                   </ul>
                 </li>
                 <div class="separator"></div>
-                <li>Reports
-                  <ul>
-                    <li>Sell history</li>
-                    <li>Clients history</li>
-                  </ul>
-                </li>
+                <li class="icon save" id="quit"><a href="#">Close Editor<span>Ctrl+F4</span></a></li>
+                <li class="icon save" onclick='closeFolder()'><a href="#">Close Folder<span>Ctrl+L</span></a></li>
+                <li class="icon save" onclick='closeWindow()'><a href="#">Close Window<span>Ctrl+W</span></a></li>
+                <div class="separator"></div>
+                <li class="icon save" onclick='closeWindow()'><a href="#">Exit<span></span></a></li>
               </ul>
             </li>
             <li>
-              Window
+              Edit
               <ul>
-                <li class="icon save"><a href="javascript:void(0)">Full Screen<span>F11</span></a></li>
-  
-                <li>
-                  <a href="javascript:void(0)" onclick='toggleWidgets()'>Widgets<span><input
-                        type='checkbox' id='widgetCheckbox'></span></a>
-                </li>
+                <li class="icon save" onclick='createNewFile()'><a href="#">Undo<span>Ctrl+Z</span></a></li>
+                <li class="icon save" onclick='createNewWindow()'><a href="#">Redo<span>Ctrl+Y</span></a></li>
                 <div class="separator"></div>
-                <li>
-                  Options
-                </li>
+                <li class="icon save" onclick='cut()'><a href="#">Out<span>Ctrl+X</span></a></li>
+                <li class="icon save" onclick='copy()'><a href="#">Copy<span>Ctrl+C</span></a></li>
+                <li class="icon save" onclick='paste()'><a href="#">Paste<span>Ctrl+V</span></a></li>
+                <div class="separator"></div>
+                <li class="icon save" onclick='find()'><a href="#">Find<span>Ctrl+F</span></a></li>
+                <li class="icon save" onclick='replace()'><a href="#">Replace<span>Ctrl+H</span></a></li>
               </ul>
             </li>
-  
             <li>
-              Tools
+              Selection
               <ul>
-                <li>Load Snippets
-                  <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS</li>
-                  </ul>
-                </li>
+                <li class="icon save" onclick='selectAll()'><a href="#">Select All<span>Ctrl+A</span></a></li>
+                <li class="icon save" onclick='expandSelection()'><a href="#">Expand Selection<span>Shift+Alt+RightArrow</span></a></li>
+                <li class="icon save" onclick='shrinkSelection()'><a href="#">Shrink Selection<span>Shift+Alt+RightArrow</span></a></li>
+                <div class="separator"></div>
+                <li class="icon save" onclick='copyLineUp()'><a href="#">Copy Line Up<span>Shift+Alt+UpArrow</span></a></li>
+                <li class="icon save" onclick='copyLineDown()'><a href="#">Copy Line Down<span>Shift+Alt+DownArrow</span></a></li>
+                <li class="icon save" onclick='moveLineUp()'><a href="#">Move Line Up<span>Alt+UpArrow</span></a></li>
+                <li class="icon save" onclick='moveLineDown()'><a href="#">Move Line Down<span>Alt+DownArrow</span></a></li>
+                <li class="icon save" onclick='moveLineDown()'><a href="#">Duplicate Selection<span>Ctrl+C</span></a></li>
+                <div class="separator"></div>
+                <li class="icon save" onclick='find()'><a href="#">Switch To Ctrl+Click for Multi Cursor<span></span></a></li>
+                <li class="icon save" onclick='replace()'><a href="#">Column Selection Mode<span></span></a></li>
               </ul>
             </li>
-  
+            <li>View</li>
+            <li>Go</li>
+            <li>Run</li>
             <li>
-              Settings
+              Terminal
               <ul>
-                <li onclick='settings("theme")'>Themes</li>
-                <div class="separator"></div>
-                <li>Upgrade account</li>
-                <li>Registration</li>
-                <div class="separator"></div>
-                <li>Contact us</li>
+                <li class="icon save" onclick='newTerminal()'><a href="#">New Terminal<span>Ctrl+T</span></a></li>
               </ul>
             </li>
-  
             <li>
               Help
               <ul>
-                <li onclick='showShortcuts()'>Shortcuts</li>
+                <li class="icon save"><a href="#">Welcome<span></span></a></li>
+                <li class="icon save"><a href="#">Interactive Playground<span></span></a></li>
+                <li class="icon save"><a href="#">Documentation<span></span></a></li>
+                <li class="icon save"><a href="#">Release Note<span></span></a></li>
                 <div class="separator"></div>
-                <li>Upgrade account</li>
-                <li>Registration</li>
+                <li class="icon save"><a href="#">View License<span></span></a></li>
                 <div class="separator"></div>
-                <li>Contact us</li>
+                <li class="icon save"><a href="#">Toggle Developer Tools<span>Ctrl+Shift+I</span></a></li>
+                <li class="icon save"><a href="#">Open Process Explorer<span></span></a></li>
+                <div class="separator"></div>
+                <li class="icon save"><a href="#">Check For Updates<span></span></a></li>
+                <div class="separator"></div>
+                <li class="icon save"><a href="#">About<span></span></a></li>
               </ul>
             </li>
           </ul>
         </div>    
         <div class="title draggable">
-          VS Code
+          index.html - folder_name - VS Code
         </div>
         <div class="control-bar">
-          <button class="control-btn title-bar-btn" id="minimize">i</button>
-          <button class="control-btn title-bar-btn" id="maximize">i</button>
-          <button class="control-btn title-bar-btn" id="exit">i</button>
+          <button class="control-btn title-bar-btn" id="min">
+            <svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+            </svg>
+          </button>
+          <button class="control-btn title-bar-btn" id="max">
+            <svg class="icon max-icon" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            </svg>
+          </button>
+          <button class="control-btn title-bar-btn" id="exit">
+            <svg class="icon" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </button>
         </div>
       </div>
       <div class="main">
-        <div class="explorer-container">
-          <div class="opened-file">
+        <div class="explorer-container" id="explorer_container">
+          <div class="opened-file" id="opened-file-container">
             <div class="opened-file-title">
-              <button class="folder-btn" id="expend-collapse">i</button>
+              <button class="folder-btn" id="expend_collapse_file">
+                <svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                </svg>  
+              </button>
               <div class="file-name">file</div>
             </div>
+            <div class="opened-file-content"></div>
           </div>
-          <div class="opened-folder">
+
+          <div class="opened-folder" id="opened-folder-container">
             <div class="opened-folder-title">
-              <button class="folder-btn" id="expend-collapse">i</button>
+              <button class="folder-btn" id="expend_collapse_folder">
+                <svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                </svg>  
+              </button>
               <div class="folder-name">folder</div>
               <button class="folder-btn" id="new-file">i</button>
               <button class="folder-btn" id="new-folder">i</button>
               <button class="folder-btn" id="sync-folder">i</button>
               <button class="folder-btn" id="collepse-into-explorer">i</button>
             </div>
-            <div class="opend-folder-content"></div>  
+            <div class="opened-folder-content"></div>  
           </div>
         </div>
         <div class="text-editor"></div>
@@ -192,5 +183,6 @@
         <div class="file-type">html</div>
       </div>
     </div>
+    <script src="js/screen-control-btn.js"></script>
   </body>
 </html>

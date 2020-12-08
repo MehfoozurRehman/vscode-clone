@@ -7,6 +7,7 @@ ul.main-menu > li {
   list-style-type: none;
   padding: 0.7em;
   line-height: 28px;
+  font-size: var(--font-size);
   vertical-align: middle;
   cursor: default;
   outline: none;
@@ -27,7 +28,7 @@ ul.main-menu li ul li a span {
   font-size: var(--font-size);
   color: var(--font-color);
   float: right;
-  right: 10px;
+  right: 20px;
   left: auto;
   position: absolute;
 }
@@ -38,6 +39,7 @@ ul.main-menu > li ul {
   padding: 0.3em;
   margin: 0;
   display: none;
+  font-size: var(--font-size);
   border-width: 1px;
   border-style: solid;
   border-color: var(--hover-color);
@@ -49,8 +51,10 @@ ul.main-menu > li ul {
 ul.main-menu li ul li {
   display: list-item;
   margin: 0;
-  padding: 0.3em;
-  min-width: 200px;
+  padding: 0.1em 1.2em;
+  font-size: var(--font-size);
+  min-width: 220px;
+  width: 300px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -69,7 +73,7 @@ ul.main-menu li ul li.disabled a {
 }
 
 .separator {
-  width: 90%;
+  width: 95%;
   background-color: var(--hover-color);
   height: 1px;
   margin: 3px auto;
