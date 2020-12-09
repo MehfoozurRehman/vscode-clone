@@ -84,3 +84,6 @@ ul.main-menu li ul li.disabled a {
   background-repeat: no-repeat;
   background-position: right center;
 }
+ul.main-menu li ul li ul {
+  margin: -5px 26px;
+}

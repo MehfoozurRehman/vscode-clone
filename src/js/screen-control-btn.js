@@ -3,64 +3,74 @@ const remote = require('electron').remote;
 var quit = document.getElementById("exit");
 var minimize = document.getElementById("min");
 var maximize = document.getElementById("max");
+
+var fileContainer = document.getElementById('opened-file-container');
+var folderContainer = document.getElementById('opened-folder-container');
+var explorerContainer = document.getElementById('explorer_container');
+
 var explorerBtn = document.getElementById("explorerBtn");
 var fileOpenedBtn = document.getElementById("expend_collapse_file");
 var folderOpenedBtn = document.getElementById("expend_collapse_folder");
 
-quit.addEventListener("click",closeWindow);
-minimize.addEventListener("click",minimizeWindow);
-maximize.addEventListener("click",maximizeWindow);
-explorerBtn.addEventListener("click",explorerContianer);
-fileOpenedBtn.addEventListener("click",fileOpenedContainer);
-folderOpenedBtn.addEventListener("click",folderOpenedContainer);
+quit.addEventListener("click",function closeWindow(){
+	remote.getCurrentWindow().close()
+});
 
-function closeWindow(){
-	 remote.getCurrentWindow().close()
-}
-
-function minimizeWindow(){
+minimize.addEventListener("click",function minimizeWindow(){
 	remote.BrowserWindow.getFocusedWindow().minimize();
-}
+});
 
-function maximizeWindow(){
-	remote.BrowserWindow.getFocusedWindow().maximize();
-}
+maximize.addEventListener("click",function maximizeWindow(){
+	if(!remote.BrowserWindow.getFocusedWindow().isMaximized()){
+		remote.BrowserWindow.getFocusedWindow().maximize();
+		maximize.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>'+'</svg>'
+	}
+	else if(remote.BrowserWindow.getFocusedWindow().isMaximized()){
+		remote.BrowserWindow.getFocusedWindow().restore();
+		maximize.innerHTML='<svg class="icon max-icon" viewBox="0 0 16 16" class="bi bi-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>'+'</svg>';
+	}
+});
 
-function explorerContianer(){
-	if(document.getElementById('explorer_container').style.width=='300px'){
-		document.getElementById('explorer_container').style.width='10px';
-		document.getElementById('explorer_container').style.transition='300ms';
+explorerBtn.addEventListener("click",function explorerContianer(){
+	if(explorerContainer.style.width=='300px'){
+		explorerContainer.style.width='10px';
+		explorerContainer.style.transition='300ms';
 		explorerBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>'+'</svg>';
 	}
 	else{
-		document.getElementById('explorer_container').style.width='300px';
-		document.getElementById('explorer_container').style.transition='300ms';
+		explorerContainer.style.width='300px';
+		explorerContainer.style.transition='300ms';
 		explorerBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>'+'</svg>';
 	}
-}
+});
 
-function fileOpenedContainer(){
-	if(document.getElementById('opened-file-container').style.height=='30%'){
-		document.getElementById('opened-file-container').style.height='35px';
-		document.getElementById('opened-file-container').style.transition='300ms';
+fileOpenedBtn.addEventListener("click",function fileOpenedContainer(){
+	if(fileContainer.style.height=='30%'){
+		fileContainer.style.height='35px';
+		fileContainer.style.transition='300ms';
 		fileOpenedBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>'+'</svg>';
 	}
 	else{
-		document.getElementById('opened-file-container').style.height='30%';
-		document.getElementById('opened-file-container').style.transition='300ms';
+		fileContainer.style.height='30%';
+		fileContainer.style.transition='300ms';
 		fileOpenedBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>'+'</svg>';
 	}
-}
+});
 
-function folderOpenedContainer(){
-	if(document.getElementById('opened-folder-container').style.height=='68%'){
-		document.getElementById('opened-folder-container').style.height='35px';
-		document.getElementById('opened-folder-container').style.transition='300ms';
+folderOpenedBtn.addEventListener("click",function folderOpenedContainer(){
+	if(folderContainer.style.height=='68%'){
+		folderContainer.style.height='35px';
+		folderContainer.style.transition='300ms';
 		folderOpenedBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>'+'</svg>';
 	}
 	else{
-		document.getElementById('opened-folder-container').style.height='68%';
-		document.getElementById('opened-folder-container').style.transition='300ms';
+		folderContainer.style.height='68%';
+		folderContainer.style.transition='300ms';
 		folderOpenedBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>'+'</svg>';
 	}
-}
+});
+
+
+
+
+

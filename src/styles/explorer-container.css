@@ -5,6 +5,7 @@
   padding: 0.7em;
   box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.1);
   padding-bottom: 0;
+  user-select: none;
 }
 .opened-file {
   height: 30%;
@@ -25,8 +26,14 @@
 .folder-btn {
   width: 30px;
   height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0px 3px;
   cursor: pointer;
+}
+.folder-btn:first-child {
+  margin: 0px 1px;
 }
 .folder-btn:hover {
   background-color: var(--bar-color);
