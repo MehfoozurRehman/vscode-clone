@@ -1,10 +1,22 @@
 .side-bar {
   height: 100%;
+  width: fit-content;
+  background-color: var(--bar-color);
+  display: flex;
+  box-shadow: -3px 0px 6px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+.website-bar {
+  height: 100%;
+  width: fit-content;
   background-color: var(--bar-color);
   display: flex;
   flex-direction: column;
   box-shadow: -3px 0px 6px rgba(0, 0, 0, 0.1);
-  user-select: none;
+}
+.website {
+  height: 100%;
+  width: 0px;
 }
 .side-bar-btn {
   width: 45px;

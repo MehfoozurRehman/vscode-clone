@@ -7,10 +7,12 @@ var maximize = document.getElementById("max");
 var fileContainer = document.getElementById('opened-file-container');
 var folderContainer = document.getElementById('opened-folder-container');
 var explorerContainer = document.getElementById('explorer_container');
+var websiteContainer = document.getElementById('websiteRenderer');
 
 var explorerBtn = document.getElementById("explorerBtn");
 var fileOpenedBtn = document.getElementById("expend_collapse_file");
 var folderOpenedBtn = document.getElementById("expend_collapse_folder");
+var websiteBtn = document.getElementById('website_btn');
 
 quit.addEventListener("click",function closeWindow(){
 	remote.getCurrentWindow().close()
@@ -41,6 +43,21 @@ explorerBtn.addEventListener("click",function explorerContianer(){
 		explorerContainer.style.width='300px';
 		explorerContainer.style.transition='300ms';
 		explorerBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>'+'</svg>';
+	}
+});
+
+websiteBtn.addEventListener("click",function website_Container(){
+	if(websiteContainer.style.width=='0px'){
+		websiteContainer.style.width='300px';
+		websiteContainer.style.padding='2em';
+		websiteContainer.style.transition='300ms';
+		websiteBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>'+'</svg>';
+	}
+	else{
+		websiteContainer.style.width='0px';
+		websiteContainer.style.padding='0';
+		websiteContainer.style.transition='300ms';
+		websiteBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>'+'</svg>';
 	}
 });
 
