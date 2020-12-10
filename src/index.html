@@ -21,6 +21,7 @@
     <script src="js/code_mirror/mode/javascript/javascript.js"></script>
     <script src="js/code_mirror/mode/xml/xml.js"></script>
     <script src="js/code_mirror/mode/css/css.js"></script>
+    <script src="js/code_mirror/mode/sass/sass.js"></script>
     <script src="js/code_mirror/keymap/sublime.js"></script>
     
   </head>
@@ -53,7 +54,7 @@
                     <li class="icon save"><a href="#">Settings<span>Ctrl+,</span></a></li>
                     <div class="separator"></div>
                     <li class="icon save"><a href="#">Keyboard Shortcuts<span></span></a></li>
-                    <li class="icon save"><a href="#">Keymaps<span></span></a></li>
+                    <li class="icon save" onclick="keyMaps()"><a href="#">Keymaps<span></span></a></li>
                     <div class="separator"></div>
                     <li class="icon save" onclick='colorTheme()'><a href="#">Color Theme<span></span></a></li>
                     <li class="icon save" onclick='fileIconTheme()'><a href="#">File Icon Theme<span></span></a></li>
@@ -117,7 +118,7 @@
                 <div class="separator"></div>
                 <li class="icon save"><a href="#">View License<span></span></a></li>
                 <div class="separator"></div>
-                <li class="icon save"><a href="#">Toggle Developer Tools<span>Ctrl+Shift+I</span></a></li>
+                <li class="icon save" onclick="toggleDeveloperTools()"><a href="#">Toggle Developer Tools<span>Ctrl+Shift+I</span></a></li>
                 <li class="icon save"><a href="#">Open Process Explorer<span></span></a></li>
                 <div class="separator"></div>
                 <li class="icon save"><a href="#">Check For Updates<span></span></a></li>
@@ -202,5 +203,6 @@
     </div>
     <script src="js/screen-control-btn.js"></script>
     <script src="js/codemirror.js"></script>
+    <script src="js/menuFunctions.js"></script>
   </body>
 </html>
