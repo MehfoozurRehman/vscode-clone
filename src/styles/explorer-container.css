@@ -2,7 +2,7 @@
   width: 300px;
   background-color: var(--bar-color);
   height: 100%;
-  padding: 0.7em;
+  padding: 0em 0.7em;
   box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.1);
   padding-bottom: 0;
   user-select: none;
@@ -39,7 +39,7 @@
   background-color: var(--bar-color);
 }
 .opened-folder {
-  height: 68%;
+  height: 68.5%;
   width: 100%;
   background-color: var(--bg-color);
   overflow-y: auto;

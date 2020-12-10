@@ -75,13 +75,13 @@ fileOpenedBtn.addEventListener("click",function fileOpenedContainer(){
 });
 
 folderOpenedBtn.addEventListener("click",function folderOpenedContainer(){
-	if(folderContainer.style.height=='68%'){
+	if(folderContainer.style.height=='68.5%'){
 		folderContainer.style.height='35px';
 		folderContainer.style.transition='300ms';
 		folderOpenedBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>'+'</svg>';
 	}
 	else{
-		folderContainer.style.height='68%';
+		folderContainer.style.height='68.5%';
 		folderContainer.style.transition='300ms';
 		folderOpenedBtn.innerHTML='<svg class="icon" viewBox="0 0 16 16" class="bi bi-caret-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'+'<path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>'+'</svg>';
 	}
