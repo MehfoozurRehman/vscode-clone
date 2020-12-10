@@ -5,5 +5,6 @@ var myCodeMirror = CodeMirror(document.getElementById('text-editor'), {
     lint: true,
     mode: language,
     theme: 'dracula',
-    lineNumbers: true
+    lineNumbers: true,
+    keyMap: "sublime"
   });

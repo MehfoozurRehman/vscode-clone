@@ -12,6 +12,7 @@ const createWindow = () => {
     minWidth: 1000,
     minHeight: 700,
     frame: false,
+    backgroundColor: '#282a36',
     webPreferences: {
       nodeIntegration: true, 
       enableRemoteModule: true
