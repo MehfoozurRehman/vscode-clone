@@ -24,6 +24,17 @@
   background-color: var(--hover-color);
   margin: 0px 3px;
 }
+.opened-file-content {
+  padding: 0.3em;
+}
+.file {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3em 1em;
+  height: fit-content;
+  background-color: var(--bar-color);
+}
 .folder-btn {
   width: 30px;
   height: 30px;
