@@ -1,17 +1,15 @@
 {
-  "name": "codepen",
-  "productName": "codepen",
+  "name": "vscode",
   "version": "1.0.0",
-  "description": "My Electron application description",
   "main": "src/index.js",
+  "productName": "vscode",
+  "description": "Vscode like code editor",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
     "make": "electron-forge make",
+    "start": "electron-forge start",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "package": "electron-forge package"
   },
-  "keywords": [],
   "author": {
     "name": "MehfoozurRehman",
     "email": "mehfoozijaz786@gmail.com"
@@ -45,15 +43,15 @@
     }
   },
   "dependencies": {
-    "bootstrap-icons": "^1.9.1",
+    "bootstrap-icons": "^1.10.3",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.67",
-    "@electron-forge/maker-deb": "^6.0.0-beta.67",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.67",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
-    "@electron-forge/maker-zip": "^6.0.0-beta.67",
-    "electron": "21.1.0"
+    "@electron-forge/cli": "^6.1.0",
+    "@electron-forge/maker-deb": "^6.1.0",
+    "@electron-forge/maker-rpm": "^6.1.0",
+    "@electron-forge/maker-squirrel": "^6.1.0",
+    "@electron-forge/maker-zip": "^6.1.0",
+    "electron": "23.2.1"
   }
 }
