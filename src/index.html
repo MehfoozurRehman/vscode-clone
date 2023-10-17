@@ -31,6 +31,7 @@
     <script src="js/code_mirror/keymap/sublime.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/shortcuts.js"></script>
+
   </head>
   <body>
     <div class="container">
@@ -232,9 +233,7 @@
                 </li>
                 <div class="separator"></div>
                 <li class="icon save">
-                  <a href="#" id="about" onclick="aboutWindow()"
-                    >About<span></span
-                  ></a>
+                  <a href="#" id="about" onclick="aboutWindow()">About<span></span></a>
                 </li>
               </ul>
             </li>
@@ -306,7 +305,7 @@
               </button>
               <div class="file-name">file</div>
             </div>
-            <ul class="opened-file-content" id="files">
+            <ul class="opened-file-content" id="files"> 
               <!--<li class="file">
                 <div class="file-name">file</div>
                 <button class="delete-file">
@@ -381,7 +380,7 @@
         <div class="file-type">html</div>
       </div>
     </div>
-
-    <script src="js/screen-control-btn.js"></script>
+    
+    <script src="js/screen-control-btn.js" defer></script>
   </body>
 </html>
