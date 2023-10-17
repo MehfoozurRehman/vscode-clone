@@ -1,24 +1,32 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
-(function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
+(function (mod) {
+  if (typeof exports == "object" && typeof module == "object")
+    // CommonJS
     mod(require("../../lib/codemirror"), require("../clike/clike"));
-  else if (typeof define == "function" && define.amd) // AMD
+  else if (typeof define == "function" && define.amd)
+    // AMD
     define(["../../lib/codemirror", "../clike/clike"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
-})(function(CodeMirror) {
+  // Plain browser env
+  else mod(CodeMirror);
+})(function (CodeMirror) {
   "use strict";
 
-  var keywords = ("this super static final const abstract class extends external factory " +
+  var keywords = (
+    "this super static final const abstract class extends external factory " +
     "implements mixin get native set typedef with enum throw rethrow " +
     "assert break case continue default in return new deferred async await covariant " +
     "try catch finally do else for if switch while import library export " +
-    "part of show hide is as extension on yield late required").split(" ");
-  var blockKeywords = "try catch finally do else for if switch while".split(" ");
+    "part of show hide is as extension on yield late required"
+  ).split(" ");
+  var blockKeywords = "try catch finally do else for if switch while".split(
+    " ",
+  );
   var atoms = "true false null".split(" ");
-  var builtins = "void bool num int double dynamic var String Null Never".split(" ");
+  var builtins = "void bool num int double dynamic var String Null Never".split(
+    " ",
+  );
 
   function set(words) {
     var obj = {};
@@ -27,7 +35,9 @@
   }
 
   function pushInterpolationStack(state) {
-    (state.interpolationStack || (state.interpolationStack = [])).push(state.tokenize);
+    (state.interpolationStack || (state.interpolationStack = [])).push(
+      state.tokenize,
+    );
   }
 
   function popInterpolationStack(state) {
@@ -45,27 +55,27 @@
     builtin: set(builtins),
     atoms: set(atoms),
     hooks: {
-      "@": function(stream) {
+      "@": function (stream) {
         stream.eatWhile(/[\w\$_\.]/);
         return "meta";
       },
 
       // custom string handling to deal with triple-quoted strings and string interpolation
-      "'": function(stream, state) {
+      "'": function (stream, state) {
         return tokenString("'", stream, state, false);
       },
-      "\"": function(stream, state) {
-        return tokenString("\"", stream, state, false);
+      '"': function (stream, state) {
+        return tokenString('"', stream, state, false);
       },
-      "r": function(stream, state) {
+      r: function (stream, state) {
         var peek = stream.peek();
-        if (peek == "'" || peek == "\"") {
+        if (peek == "'" || peek == '"') {
           return tokenString(stream.next(), stream, state, true);
         }
         return false;
       },
 
-      "}": function(_stream, state) {
+      "}": function (_stream, state) {
         // "}" is end of interpolation, if interpolation stack is non-empty
         if (sizeInterpolationStack(state) > 0) {
           state.tokenize = popInterpolationStack(state);
@@ -74,21 +84,21 @@
         return false;
       },
 
-      "/": function(stream, state) {
-        if (!stream.eat("*")) return false
-        state.tokenize = tokenNestedComment(1)
-        return state.tokenize(stream, state)
+      "/": function (stream, state) {
+        if (!stream.eat("*")) return false;
+        state.tokenize = tokenNestedComment(1);
+        return state.tokenize(stream, state);
       },
-      token: function(stream, _, style) {
+      token: function (stream, _, style) {
         if (style == "variable") {
           // Assume uppercase symbols are classes using variable-2
-          var isUpper = RegExp('^[_$]*[A-Z][a-zA-Z0-9_$]*$','g');
+          var isUpper = RegExp("^[_$]*[A-Z][a-zA-Z0-9_$]*$", "g");
           if (isUpper.test(stream.current())) {
-            return 'variable-2';
+            return "variable-2";
           }
         }
-      }
-    }
+      },
+    },
   });
 
   function tokenString(quote, stream, state, raw) {
@@ -106,7 +116,11 @@
           return "string";
         }
         var next = stream.next();
-        if (next == quote && !escaped && (!tripleQuoted || stream.match(quote + quote))) {
+        if (
+          next == quote &&
+          !escaped &&
+          (!tripleQuoted || stream.match(quote + quote))
+        ) {
           state.tokenize = null;
           break;
         }
@@ -138,29 +152,37 @@
 
   function tokenNestedComment(depth) {
     return function (stream, state) {
-      var ch
-      while (ch = stream.next()) {
+      var ch;
+      while ((ch = stream.next())) {
         if (ch == "*" && stream.eat("/")) {
           if (depth == 1) {
-            state.tokenize = null
-            break
+            state.tokenize = null;
+            break;
           } else {
-            state.tokenize = tokenNestedComment(depth - 1)
-            return state.tokenize(stream, state)
+            state.tokenize = tokenNestedComment(depth - 1);
+            return state.tokenize(stream, state);
           }
         } else if (ch == "/" && stream.eat("*")) {
-          state.tokenize = tokenNestedComment(depth + 1)
-          return state.tokenize(stream, state)
+          state.tokenize = tokenNestedComment(depth + 1);
+          return state.tokenize(stream, state);
         }
       }
-      return "comment"
-    }
+      return "comment";
+    };
   }
 
-  CodeMirror.registerHelper("hintWords", "application/dart", keywords.concat(atoms).concat(builtins));
+  CodeMirror.registerHelper(
+    "hintWords",
+    "application/dart",
+    keywords.concat(atoms).concat(builtins),
+  );
 
   // This is needed to make loading through meta.js work.
-  CodeMirror.defineMode("dart", function(conf) {
-    return CodeMirror.getMode(conf, "application/dart");
-  }, "clike");
+  CodeMirror.defineMode(
+    "dart",
+    function (conf) {
+      return CodeMirror.getMode(conf, "application/dart");
+    },
+    "clike",
+  );
 });
