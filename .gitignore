@@ -86,4 +86,6 @@ typings/
 # Electron-Forge
 out/
 .gitignore
-config.bat
+
+.env*
+!.env.example
